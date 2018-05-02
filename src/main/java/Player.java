@@ -4,6 +4,7 @@ public class Player {
     private String name;
     private ArrayList<Card> hand;
 
+
     public Player(String name){
         this.name = name;
         this.hand = new ArrayList<>();
@@ -13,7 +14,19 @@ public class Player {
         return name;
     }
 
-    public ArrayList<Card> getCardRanking() {
-        return hand;
+    public int getHandCount() {
+        return hand.size();
+    }
+
+    public void receiveCard(Card card) {
+        this.hand.add(card);
+    }
+
+    public int checkValueOfCard() {
+        int valueOfCards = 0;
+        for(Card card : this.hand)
+        {valueOfCards += card.getValueFromEnum();
+        }
+        return valueOfCards;
     }
 }
