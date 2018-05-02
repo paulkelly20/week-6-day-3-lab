@@ -22,11 +22,21 @@ public class Game {
         this.players.add(player);
     }
 
-    public void dealCard() {
+    public void dealCard(int cards) {
+
+        for (Player player : this.players) {
+            for(int i = 0; i < cards ; i++) {
+                player.receiveCard(deck.giveCard());
+            }
+        }
+    }
+
+    public void dealTwoCards() {
         for(Player player : this.players){
             player.receiveCard(deck.giveCard());
             player.receiveCard(deck.giveCard());
         }
+
 
     }
 

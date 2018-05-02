@@ -32,11 +32,30 @@ public class GameTest {
         assertEquals(2, game.getPlayers());
     }
 
+
     @Test
-    public void checkPlayerHasCard() {
+    public void checkPlayerHasCardDealOneCard() {
         game.addPlayers(player1);
         game.addPlayers(player2);
-        game.dealCard();
+        game.dealCard(1);
+        assertEquals(1, player1.getHandCount());
+        assertEquals(1, player2.getHandCount());
+    }
+
+    @Test
+    public void checkPlayerHasCardDealFiveCard() {
+        game.addPlayers(player1);
+        game.addPlayers(player2);
+        game.dealCard(5);
+        assertEquals(5, player1.getHandCount());
+        assertEquals(5 , player2.getHandCount());
+    }
+
+    @Test
+    public void checkPlayerHasCardDealTwoCards() {
+        game.addPlayers(player1);
+        game.addPlayers(player2);
+        game.dealTwoCards();
         assertEquals(2, player1.getHandCount());
         assertEquals(2, player2.getHandCount());
     }
